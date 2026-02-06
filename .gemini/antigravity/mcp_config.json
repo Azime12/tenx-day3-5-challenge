@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "tenxfeedbackanalytics": {
+            "serverUrl": "https://mcppulse.10academy.org/proxy",
+            "headers": {
+                "X-Device": "linux",
+                "X-Coding-Tool": "antigravity"
+            }
+        }
+    }
+}
