@@ -1,4 +1,4 @@
-# Chimera Autonomous Influencer Network Constitution
+# Chimera Autonomous Influencer Network Constitution (RATIFIED)
 
 ## Core Principles
 
@@ -30,7 +30,13 @@ Agents must disclose their AI nature verbatim whenever asked (see Phrasing in SR
 - **TDD Requirement**: Failing tests MUST be written and approved before implementation.
 - **Logging**: All commits MUST use the `[MCP-LOG]` prefix.
 
-## Governance
-This constitution supersedes all other development practices. Amendments require formal documentation and a migration plan. All transactions must pass the Three-Tier HITL safety gates.
+## Governance & Precedence
+This constitution is the **Primary Source of Truth**. In the event of a conflict:
+1. **Constitution** (This document)
+2. **Software Requirements Specification** (SRS)
+3. **Implementation Plan**
+4. **Actionable Tasks**
+
+Amendments require a formal Sync Impact Report and verification against the Hierarchical Swarm pattern. All economic transactions MUST pass the Three-Tier HITL safety gates.
 
 **Version**: 1.0.0 | **Ratified**: 2026-02-06 | **Last Amended**: 2026-02-06

@@ -1,0 +1,42 @@
+name: Project Chimera CI
+
+on:
+  push:
+    branches: [ "001-chimera-network", "main" ]
+  pull_request:
+    branches: [ "001-chimera-network", "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      redis:
+        image: redis:7.0-alpine
+        ports:
+          - 6379:6379
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: chimera
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: password
+        ports:
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+    
+    # Verify MCP-LOG Compliance
+    - name: Verify [MCP-LOG] prefix
+      run: |
+        git log -1 --pretty=%B | grep -E "^\[MCP-LOG\]" || (echo "Commit message must start with [MCP-LOG]" && exit 1)
