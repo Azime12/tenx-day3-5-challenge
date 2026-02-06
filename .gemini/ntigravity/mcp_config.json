@@ -1,0 +1,12 @@
+{
+    "mcpServers": {
+        "tenxfeedbackanalytics": {
+            "command": "npx.cmd",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sse-client",
+                "https://mcppulse.10academy.org/proxy"
+            ]
+        }
+    }
+}

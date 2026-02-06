@@ -8,8 +8,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from src.services.mcp_client import MCPClient
 
 async def main():
-    # Use absolute path to .cursor/mcp.json or relative if running from root
-    config_path = os.path.join(os.getcwd(), '.cursor', 'mcp.json')
+    # Use the config file the user just created
+    config_path = os.path.join(os.getcwd(), '.gemini', 'antigravity', 'mcp_config.json')
     client = MCPClient(config_path=config_path)
     
     server_name = "tenxfeedbackanalytics"

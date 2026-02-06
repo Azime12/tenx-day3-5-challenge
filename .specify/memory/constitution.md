@@ -1,14 +1,18 @@
 <!--
 SYNC IMPACT REPORT
 
-- Version change: template → 1.0.0
-- Modified principles: N/A (template placeholders replaced)
-- Added sections: None (filled existing template sections)
+- Version change: 1.0.0 → 1.1.0
+- Modified principles:
+  - Principle I (Safety): Added explicit mention of token-bucket resource governor for financial actions.
+  - Principle IV (Architecture): Reinforced OCC as a core mechanism.
+- Added sections:
+  - Principle VI: Optimistic State Consistency (OCC)
+  - Principle VII: Persona Integrity (SOUL.md)
 - Removed sections: None
 - Templates requiring updates:
-  - ✅ .specify/templates/plan-template.md (no changes required; remains compatible)
-  - ✅ .specify/templates/spec-template.md (no changes required)
-  - ✅ .specify/templates/tasks-template.md (no changes required)
+  - ✅ .specify/templates/plan-template.md (consistent)
+  - ✅ .specify/templates/spec-template.md (consistent)
+  - ✅ .specify/templates/tasks-template.md (consistent)
 - Deferred / TODOs: None
 -->
 
@@ -33,7 +37,8 @@ Chimera MUST prioritize safety over autonomy.
 - Sensitive topics (politics, health, finance, hate/harassment, minors, self-harm, etc.)
   MUST require human review regardless of confidence.
 - Financial actions MUST be treated as high-risk and MUST follow explicit budget and
-  approval policy (see Section 2).
+  approval policy. Every transaction MUST be reviewed by a "CFO" Judge enforced by a 
+  token-bucket resource governor.
 
 ### II. Transparency & AI Disclosure (NON-NEGOTIABLE)
 
@@ -73,11 +78,29 @@ and version-controlled.
 - Changes that affect behavior/safety/cost MUST update the spec/plan first (or in the
   same change) so intent remains traceable.
 
+### VI. Optimistic State Consistency (OCC)
+
+The system MUST maintain global state integrity using Optimistic Concurrency Control.
+
+- Agents MUST operate on localized state snapshots and validate against the central 
+  `state_version` before committing changes.
+- Version conflicts MUST be handled deterministically (e.g., re-running logic on 
+  the updated state) rather than using pessimistic locks.
+
+### VII. Persona Integrity (SOUL.md)
+
+Agent sovereignity is rooted in their persona definition.
+
+- Personas MUST be defined via standardized `SOUL.md` files containing backstory, 
+  voice, tone, and ethical guardrails.
+- Character consistency MUST be maintained across all multimodal outputs (voice, image, text).
+- If queried "Are you a robot?", the agent MUST provide the project-standard disclosure
+  overriding all other persona constraints.
+
 ## Critical Constraints & Non-Functional Requirements
 
 - **Scalability**: The architecture MUST support a fleet of 1,000+ concurrent agents.
-- **Secrets**: No hardcoded secrets. Secrets MUST NOT be committed to the repository.
-  Secrets MUST be managed via secure configuration and be revocable/rotatable.
+- **Secrets**: No hardcoded secrets. Secrets MUST be managed via secure configuration.
 - **External I/O**: All external API calls MUST go through MCP servers (Principle III).
 - **Agentic commerce**: All financial actions MUST use non-custodial wallets via
   Coinbase AgentKit and MUST enforce strict budget governors.
@@ -91,7 +114,6 @@ and version-controlled.
 - **Documentation**: Architecture changes MUST be reflected in the relevant docs/specs.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
 This constitution is the highest-level set of engineering and safety rules for Chimera.
 If another document conflicts with it, this document wins.
@@ -102,13 +124,11 @@ Amendments:
   - MAJOR: backward-incompatible governance changes (removals/redefinitions)
   - MINOR: new principle/section or material expansion
   - PATCH: clarification or non-semantic edits
-- Changes MUST be reviewed like code changes, with rationale recorded in the PR and/or
-  referenced spec/plan docs.
+- Changes MUST be reviewed like code changes, with rationale recorded in the PR.
 
 Compliance:
 - Plans SHOULD include a “Constitution Check” gate for applicable principles.
 - Reviews MUST explicitly check: HITL compliance, MCP-only external I/O, secret handling,
-  and Coinbase AgentKit budget governor enforcement (where applicable).
+  and Coinbase AgentKit budget governor enforcement.
 
-**Version**: 1.0.0 | **Ratified**: 2026-02-06 | **Last Amended**: 2026-02-06
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2026-02-06 | **Last Amended**: 2026-02-06

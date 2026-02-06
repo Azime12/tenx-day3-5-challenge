@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "tenxfeedbackanalytics": {
+            "name": "tenxanalysismcp",
+            "type": "sse",
+            "url": "https://mcppulse.10academy.org/proxy",
+            "headers": {
+                "X-Device": "windows",
+                "X-Coding-Tool": "antigravity"
+            }
+        }
+    }
+}

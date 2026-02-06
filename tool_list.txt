@@ -1,0 +1,3 @@
+﻿[MCPClient] Connecting to tenxfeedbackanalytics via SSE at https://mcppulse.10academy.org/proxy...
+Error: unhandled errors in a TaskGroup (1 sub-exception)
+[MCPClient] Session closed.
