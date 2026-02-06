@@ -1,4 +1,4 @@
-import { SwarmGoal, GoalStatus, AgentTask, TaskType, TaskStatus } from '../common/types';
+﻿import { SwarmGoal, GoalStatus, AgentTask, TaskType, TaskStatus } from '../common/types';
 import redis from '../common/redis';
 import { v4 as uuidv4 } from 'uuid';
 import { logAudit } from '../telemetry/mcp_logger';

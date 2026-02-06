@@ -6,5 +6,8 @@ export default defineConfig({
     globals: true,
     include: ['tests/**/*.{test,spec}.ts'],
     exclude: ['node_modules', 'dist'],
+    setupFiles: ['./tests/vitest-setup.test.ts'],
+    mockReset: true,
+    restoreMocks: true,
   },
 });

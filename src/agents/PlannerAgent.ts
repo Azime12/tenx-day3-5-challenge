@@ -1,4 +1,4 @@
-import { Agent } from '../common/antigravity';
+﻿import { Agent } from '../common/antigravity';
 import { Task, Goal, TaskStatus, TaskType } from '../common/types';
 
 export class PlannerAgent extends Agent {
@@ -33,23 +33,27 @@ export class PlannerAgent extends Agent {
     Output a strictly valid JSON array of tasks following this schema:
     [{
       "taskId": "string",
-      "type": "RESEARCH" | "CONTENT" | "DISTRIBUTION",
-      "priority": number,
+      "type": "generate_content" | "reply_comment" | "execute_transaction",
+      "priority": "high" | "medium" | "low",
+      "context": {
+        "goal_description": "string",
+        "persona_constraints": ["string"],
+        "required_resources": ["string"]
+      },
       "dependencies": ["taskId"],
       "data": { ...task_specific_data... }
     }]`;
     
     const response = await this.complete(prompt);
     try {
-      // Extract JSON if model wraps it in markdown blocks
       const jsonMatch = response.match(/\[[\s\S]*\]/);
       const jsonStr = jsonMatch ? jsonMatch[0] : response;
       const tasks: Task[] = JSON.parse(jsonStr);
 
-      // Validate base status for each task
       return tasks.map(t => ({
         ...t,
-        status: TaskStatus.PENDING
+        status: TaskStatus.PENDING,
+        created_at: new Date().toISOString()
       }));
     } catch (err) {
       console.error('[MCP-LOG] Failed to decompose goal into valid DAG:', err);
@@ -58,7 +62,13 @@ export class PlannerAgent extends Agent {
         taskId: `fail-${Date.now()}`,
         type: TaskType.RESEARCH,
         status: TaskStatus.FAILED,
-        priority: 0,
+        priority: 'low',
+        context: {
+          goal_description: goal.description,
+          persona_constraints: [],
+          required_resources: []
+        },
+        created_at: new Date().toISOString(),
         dependencies: [],
         data: { error: 'Decomposition failed' }
       }];
