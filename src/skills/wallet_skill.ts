@@ -1,4 +1,4 @@
-import { coinbaseSkill } from './coinbase_mcp';
+﻿import { coinbaseSkill } from './coinbase_mcp';
 import { cfoJudge } from '../orchestrator/cfo_judge';
 import { logAudit } from '../telemetry/mcp_logger';
 

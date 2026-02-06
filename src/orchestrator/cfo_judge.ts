@@ -1,4 +1,4 @@
-import redis from '../common/redis';
+﻿import redis from '../common/redis';
 import { logAudit } from '../telemetry/mcp_logger';
 
 export class CFOJudge {

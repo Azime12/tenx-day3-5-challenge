@@ -1,0 +1,17 @@
+# Project Chimera - Cursor Rules
+
+## Structural Requirements
+The project MUST maintain the following structure. Any change that removes these is a breaking change:
+- `specs/`: Master and feature specifications.
+- `tests/`: TDD red-baseline and integration tests.
+- `skills/`: Capability packages for agents.
+- `Dockerfile` & `Makefile`: Build and environment automation.
+- `.github/workflows/`: CI/CD automation.
+- `.cursor/rules`: This file.
+
+## Development Standards
+1. **Spec-First**: No implementation without a corresponding specification change or reference.
+2. **TDD-Mandatory**: Every new feature must start with a failing test in `tests/`.
+3. **Encoding**: All files MUST be UTF-8 (No BOM/No UTF-16).
+4. **Agentic Style**: Follow the Antigravity agent patterns (Planner/Worker/Judge).
+5. **Security**: Zero tolerance for hardcoded secrets. Use `.env`.

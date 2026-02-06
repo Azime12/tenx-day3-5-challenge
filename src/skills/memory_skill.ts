@@ -1,4 +1,4 @@
-import client from '../common/weaviate';
+﻿import client from '../common/weaviate';
 
 export class MemorySkill {
   /**

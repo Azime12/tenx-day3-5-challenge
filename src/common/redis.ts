@@ -1,5 +1,5 @@
-import Redis from 'ioredis';
-import dotenv from 'dotenv';
+﻿import Redis from 'ioredis';
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 

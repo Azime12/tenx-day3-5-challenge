@@ -1,18 +1,25 @@
-import fs from 'fs';
+﻿import fs from 'fs';
 import path from 'path';
 
 const REQUIRED_SPECS = [
     'specs/_meta.md',
     'AGENTS.md',
     'ANTIGRAVITY',
-    'skills/README.md'
+    'skills/README.md',
+    'Dockerfile',
+    'Makefile',
+    '.github/workflows/main.yml',
+    '.cursor/rules'
 ];
 
 const REQUIRED_DIRS = [
     'src/agents',
     'src/common',
     'skills',
-    'tests'
+    'tests',
+    'specs',
+    '.github/workflows',
+    '.cursor'
 ];
 
 function checkSpecs() {

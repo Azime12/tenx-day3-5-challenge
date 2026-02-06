@@ -1,4 +1,4 @@
-import { Agent } from '../common/antigravity';
+﻿import { Agent } from '../common/antigravity';
 import { Task, TaskStatus, TaskType } from '../common/types';
 import { logAudit } from '../telemetry/mcp_logger';
 
@@ -25,21 +25,23 @@ export class WorkerAgent extends Agent {
       let result;
       switch (task.type) {
         case TaskType.RESEARCH:
-          // In a real scenario, this would call specialized research tools
-          result = await this.useResearchSkill(task.data);
+        case TaskType.REPLY_COMMENT:
+          result = await this.useResearchSkill(task.context);
           break;
         case TaskType.CONTENT:
-          result = await this.useContentSkill(task.data);
+        case TaskType.GENERATE_CONTENT:
+          result = await this.useContentSkill(task.context);
           break;
         case TaskType.DISTRIBUTION:
-          result = await this.useSocialSkill(task.data);
+        case TaskType.EXECUTE_TRANSACTION:
+          result = await this.useSocialSkill(task.context);
           break;
         default:
           throw new Error(`Unsupported task type: ${task.type}`);
       }
 
       return {
-        status: TaskStatus.DONE,
+        status: TaskStatus.COMPLETE,
         output: result,
         timestamp: new Date().toISOString()
       };
