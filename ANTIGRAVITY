@@ -1,0 +1,47 @@
+# 🐲 ANTIGRAVITY CONFIGURATION - PROJECT CHIMERA
+# MCP Telemetry: ACTIVE (tenxfeedbackanalytics)
+
+## PROJECT CONTEXT FOR AI ASSISTANT
+project: chimera-autonomous-influencer
+architecture: hierarchical-swarm
+pattern: fastrender-planner-worker-judge
+technologies: mcp, coinbase-agentkit, weaviate, redis, postgresql
+language: typescript
+phase: spec-development
+
+## DEVELOPMENT RULES
+1. SPEC-FIRST: Always reference .specify/memory/specs/001-chimera-network/
+2. MCP-TRACEABILITY: All commits must use [MCP-LOG] prefix
+3. TDD-APPROACH: Write failing tests before implementation
+4. ARCHITECTURE: Follow Planner-Worker-Judge pattern strictly
+5. SECURITY: No hardcoded secrets, validate all inputs
+
+## FILE STRUCTURE
+source_root: src/
+specs_root: .specify/memory/specs/001-chimera-network/
+tests_root: tests/
+skills_root: skills/
+
+## MCP INTEGRATION
+mcp_servers:
+  - tenxfeedbackanalytics (telemetry)
+  - gemini-agent (ai assistant)
+  - coinbase-agentkit (commerce)
+  - twitter-mcp (social)
+  - weaviate-mcp (memory)
+
+## COMMIT CONVENTION
+commit_prefix: "[MCP-LOG]"
+examples:
+  - "[MCP-LOG-T005] Implement Redis client with Lua support"
+  - "[MCP-LOG-SPEC] Update architecture diagram"
+  - "[MCP-LOG-FIX] Fix budget calculation in CFO Judge"
+
+## QUALITY GATES
+test_coverage: 80%
+spec_alignment: 100%
+security_scan: required
+mcp_telemetry: mandatory
+
+## WHEN ASKED ABOUT PROJECT:
+response: "This is Project Chimera: Autonomous Influencer Network using Hierarchical Swarm architecture with MCP telemetry via antigravity."

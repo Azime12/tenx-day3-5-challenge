@@ -1,0 +1,27 @@
+# CodeRabbit Configuration for Project Chimera
+# Purpose: Enforce Antigravity Spec Alignment and Security Vulnerabilities
+
+reviews:
+  profile: "technical"
+  high_level_summary: true
+  file_summary: true
+  request_changes_workflow: true
+  
+  auto_review:
+    enabled: true
+    ignore_paths:
+      - "dist/**"
+      - "node_modules/**"
+      - "tests/**"
+      
+  instructions:
+    - "Check for alignment with Project Chimera Master Specification (specs/_meta.md)."
+    - "Ensure all agent behaviors adhere to the project constitution (ANTIGRAVITY)."
+    - "Verify that all external interactions use the Model Context Protocol (MCP)."
+    - "Identify any security vulnerabilities, especially hardcoded secrets or insecure API key usage."
+    - "Confirm that all content generation tasks include the mandatory [AI Generated] disclosure."
+    - "Validate budget enforcement logic in any financial code (CFOAgent)."
+    - "Ensure all new code is accompanied by corresponding RED (failing) tests if applicable (TDD)."
+
+chat:
+  enabled: true

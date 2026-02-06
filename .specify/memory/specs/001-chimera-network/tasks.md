@@ -46,6 +46,10 @@ This plan follows a TDD-enabled (TDD requested in Constitution) approach to buil
 - [x] T025 [P] Implement AI nature disclosure override in all worker personas
 - [x] T026 Setup CI/CD pipeline for TDD verification and MCP telemetry checks
 
+## Phase 7: TDD Refinement & Verification
+- [x] T027 Establish failing test baseline for Safety Integration
+- [ ] T028 Iteratively fix tests following Red-Green-Refactor
+
 ## Dependencies
 1. **Foundational (Phase 2)** must be complete before any User Story.
 2. **Phase 3 (HITL)** is a prerequisite for **Phase 5 (Economic)** to ensure safety gates.
